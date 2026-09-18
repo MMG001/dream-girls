@@ -72,11 +72,12 @@
 
 <main>
 <div class="page active">
-<section>
+<section class="band-glow">
     <div class="wrap">
-      <div class="section-head">
+      <div class="crumb"><a href="index.html">Home</a><span>›</span><b>Roll Call</b></div>
+      <div class="section-head rv">
         <span class="eyebrow">Roll Call</span>
-        <h1>Roll Call: the dancers of Dream Girls, Minneapolis</h1>
+        <h1 class="xl">Roll Call: the dancers of Dream Girls, Minneapolis</h1>
         <p>Our exotic dancers and entertainers — the showgirls who make the room. Full roster and photos land after this week's shoot; here's the frame it'll live in. Want them at your table? Ask about <a class="il" href="specials.html">private dances and the VIP room</a>.</p>
       </div>
       <div class="grid g4">
@@ -157,5 +158,6 @@
   try{ if(localStorage.getItem("dg_age_ok")==="1"){ document.getElementById("agegate").classList.add("hidden"); } }catch(e){}
   document.getElementById("burger").addEventListener("click", function(){ document.getElementById("navLinks").classList.toggle("open"); });
 </script>
+<script src="js/site.js"></script>
 </body>
 </html>

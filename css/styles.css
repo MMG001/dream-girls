@@ -328,3 +328,92 @@
     box-shadow:inset 0 0 18px rgba(255,20,147,.12),0 0 18px rgba(255,20,147,.18);color:var(--pink-2)}
   .sp-ico .ni{width:36px;height:36px;filter:drop-shadow(0 0 5px rgba(255,71,156,.7))}
   @media(max-width:560px){.sp-ico{width:52px;height:52px;border-radius:13px}.sp-ico .ni{width:30px;height:30px}}
+
+/* ═══════════════ v2 STYLE SYSTEM — Stitch-grade nightlife ═══════════════ */
+:root{--plum:#1a0d22;--plum-2:#22102d;--glow-pink:0 0 24px rgba(255,20,147,.55);--glow-violet:0 0 24px rgba(168,85,247,.5)}
+
+/* gradient display headline */
+.grad{background:linear-gradient(120deg,#ffffff 0%,#ff479c 45%,#c084fc 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.grad-pink{background:linear-gradient(120deg,#ff1493,#ff8ac2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+h1.xl{font-size:clamp(38px,6.4vw,76px);letter-spacing:-.025em;line-height:1.02}
+
+/* section bands — alternating plum depths like Stitch */
+.band-plum{background:linear-gradient(180deg,var(--plum) 0%,var(--night) 100%)}
+.band-plum-2{background:linear-gradient(180deg,var(--night) 0%,var(--plum-2) 50%,var(--night) 100%)}
+.band-glow{position:relative;overflow:hidden}
+.band-glow::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(110px);background:rgba(255,20,147,.14);top:-200px;right:-120px;pointer-events:none}
+.band-glow::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(110px);background:rgba(113,5,194,.18);bottom:-220px;left:-140px;pointer-events:none}
+.band-glow>.wrap{position:relative;z-index:1}
+
+/* breadcrumb (matches BreadcrumbList schema) */
+.crumb{display:flex;gap:10px;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);margin-bottom:22px}
+.crumb a{color:var(--muted-2)}.crumb a:hover{color:var(--pink-soft)}.crumb span{color:var(--pink)}
+.crumb b{color:var(--pink-soft);font-weight:700}
+
+/* heritage / trust pills row */
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.pills .pill{background:rgba(255,255,255,.03);border-color:rgba(255,176,202,.22);color:var(--ink)}
+.pills .pill svg{width:14px;height:14px;color:var(--pink-2)}
+
+/* neon-framed feature card (the "Unrivaled Grandeur" card) */
+.neon-card{position:relative;border-radius:18px;padding:3px;background:linear-gradient(135deg,#ff1493,#a855f7 60%,#7105c2);box-shadow:var(--glow-pink),0 30px 60px -20px rgba(0,0,0,.8)}
+.neon-card .in{border-radius:15px;overflow:hidden;background:var(--card);position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end}
+.neon-card .ph{border:0;border-radius:0;aspect-ratio:auto;position:absolute;inset:0}
+.neon-card .cap{position:relative;z-index:1;padding:22px;background:linear-gradient(180deg,transparent,rgba(10,6,12,.92) 45%)}
+.neon-card .cap h3{font-size:26px;margin:8px 0 4px}
+.neon-card .cap p{font-size:14px;color:var(--muted-2)}
+
+/* hero split */
+.hero-split{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:70px 0 60px}
+.hero-split p.lead{font-size:clamp(16px,1.9vw,19px);color:var(--muted);max-width:560px;margin:18px 0 0}
+
+/* live open-status badge */
+.status{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,20,147,.08);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-soft)}
+.status i{width:8px;height:8px;border-radius:50%;background:#ff1493;box-shadow:0 0 10px #ff1493;animation:pulse 1.6s infinite}
+.status.closed i{background:#8a7a85;box-shadow:none;animation:none}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.6}}
+
+/* big neon stat cards (Stitch "15+ / 20k / 12") */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:26px 20px;border-radius:16px;background:linear-gradient(160deg,rgba(255,20,147,.14),rgba(113,5,194,.16));border:1px solid var(--line-strong);text-align:center;transition:transform .25s,box-shadow .25s}
+.stat:hover{transform:translateY(-4px);box-shadow:var(--glow-pink)}
+.stat .k{font-family:'Syne';font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1;background:linear-gradient(120deg,#fff,#ff479c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .l{margin-top:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2)}
+
+/* image mosaic (Stitch legacy section) */
+.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:180px 180px;gap:12px}
+.mosaic .ph{aspect-ratio:auto;border-radius:14px}
+.mosaic .ph:first-child{grid-row:span 2}
+
+/* venue cards (Stitch "Venue Exploration") */
+.venue{padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s}
+.venue:hover{transform:translateY(-6px);box-shadow:0 24px 50px -18px rgba(255,20,147,.45);border-color:var(--line-strong)}
+.venue .ph{aspect-ratio:4/3;border-radius:0;border:0;border-bottom:1px solid var(--line)}
+.venue .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.venue .body h3{font-size:21px;margin-bottom:8px}
+.venue .body p{font-size:14px;flex:1}
+.venue .tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px}
+.venue .tags span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:rgba(255,20,147,.1);color:var(--pink-soft);border:1px solid rgba(255,20,147,.25)}
+.venue.featured{border:2px solid var(--pink);box-shadow:var(--glow-pink)}
+.venue .cap-tag{position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--pink);color:#fff;font-weight:700;z-index:2}
+.venue{position:relative}
+
+/* glossy CTA panel w/ neon border (Stitch VIP guarantee) */
+.neon-panel{border-radius:22px;padding:2px;background:linear-gradient(135deg,rgba(255,20,147,.8),rgba(168,85,247,.6));box-shadow:0 0 40px rgba(255,20,147,.25)}
+.neon-panel .in{border-radius:20px;background:linear-gradient(160deg,var(--plum),var(--night));padding:36px}
+
+/* scroll reveal — one orchestrated pass */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+/* floating mobile CTA */
+.fab{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:400;justify-content:center;gap:10px}
+.fab .btn{flex:1;justify-content:center;box-shadow:0 14px 34px -8px rgba(255,20,147,.7)}
+
+/* card hover glow upgrade */
+.card.hoverable:hover{box-shadow:0 20px 50px -16px rgba(255,20,147,.45);border-color:var(--line-strong)}
+
+@media(max-width:900px){.hero-split{grid-template-columns:1fr;gap:30px;padding:48px 0 40px}.stats{grid-template-columns:repeat(2,1fr)}.mosaic{grid-template-rows:150px 150px}}
+@media(max-width:560px){.fab{display:flex}.stats{grid-template-columns:repeat(2,1fr)}footer{padding-bottom:96px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}

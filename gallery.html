@@ -72,11 +72,12 @@
 
 <main>
 <div class="page active">
-<section>
+<section class="band-glow">
     <div class="wrap">
-      <div class="section-head">
+      <div class="crumb"><a href="index.html">Home</a><span>›</span><b>Gallery</b></div>
+      <div class="section-head rv">
         <span class="eyebrow">Gallery</span>
-        <h1>Inside Dream Girls: Minneapolis strip club gallery</h1>
+        <h1 class="xl">Inside Dream Girls: Minneapolis <span class="grad">strip club</span> gallery</h1>
         <p>The stage, the lights, the nightlife. This grid fills in right after the shoot — drop the photos straight into these frames. Ready to see it live? Check <a class="il" href="specials.html">tonight's specials</a> and <a class="il" href="contact.html">get directions</a>.</p>
       </div>
       <div class="gallery-grid">
@@ -143,5 +144,6 @@
   try{ if(localStorage.getItem("dg_age_ok")==="1"){ document.getElementById("agegate").classList.add("hidden"); } }catch(e){}
   document.getElementById("burger").addEventListener("click", function(){ document.getElementById("navLinks").classList.toggle("open"); });
 </script>
+<script src="js/site.js"></script>
 </body>
 </html>
