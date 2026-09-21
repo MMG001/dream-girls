@@ -403,13 +403,13 @@ h1.xl{font-size:clamp(38px,6.4vw,76px);letter-spacing:-.025em;line-height:1.02}
 /* hero photo backdrop */
 .hero.hero-photo{
   background:
-    linear-gradient(100deg, rgba(8,4,12,.94) 0%, rgba(8,4,12,.78) 42%, rgba(8,4,12,.42) 100%),
-    linear-gradient(0deg, rgba(8,4,12,.95) 0%, rgba(8,4,12,.25) 34%, transparent 55%),
+    linear-gradient(100deg, rgba(8,4,12,.84) 0%, rgba(8,4,12,.68) 42%, rgba(8,4,12,.32) 100%),
+    linear-gradient(0deg, rgba(8,4,12,.85) 0%, rgba(8,4,12,.15) 34%, transparent 55%),
     url("../assets/photos/hero.jpg") center/cover no-repeat;
 }
 @media(max-width:900px){
   .hero.hero-photo{background:
-    linear-gradient(180deg, rgba(8,4,12,.82) 0%, rgba(8,4,12,.9) 70%, rgba(8,4,12,.97) 100%),
+    linear-gradient(180deg, rgba(8,4,12,.72) 0%, rgba(8,4,12,.8) 70%, rgba(8,4,12,.87) 100%),
     url("../assets/photos/hero.jpg") center/cover no-repeat}
 }
 
