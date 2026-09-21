@@ -249,13 +249,15 @@
 
   /* gallery */
   .gtabs{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 4px}
-  .gtabs a{
-    font-family:'Syne';font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none;
+  .gtabs button{
+    font-family:'Syne';font-weight:700;font-size:14px;letter-spacing:.04em;cursor:pointer;
     padding:10px 20px;border-radius:999px;color:var(--muted);
     background:rgba(255,255,255,.03);border:1px solid var(--line-strong);transition:all .2s ease}
-  .gtabs a:hover{color:#fff;background:rgba(255,20,147,.16);border-color:var(--pink-2);
+  .gtabs button:hover{color:var(--pink-soft);border-color:var(--pink-2)}
+  .gtabs button.active{color:#fff;background:rgba(255,20,147,.16);border-color:var(--pink-2);
     box-shadow:0 0 18px rgba(255,20,147,.25)}
-  .gchapter{scroll-margin-top:92px;padding-top:48px}
+  .gchapter{display:none;padding-top:34px}
+  .gchapter.active{display:block}
   .gchapter .section-head p{max-width:620px}
   .gfig{margin:0;display:flex;flex-direction:column;gap:9px}
   .gfig .ph{aspect-ratio:850/550}

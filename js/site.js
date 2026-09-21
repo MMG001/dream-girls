@@ -46,26 +46,43 @@
 })();
 
 
-/* Gallery lightbox with prev/next */
+
+/* Gallery chapter tabs + lightbox with prev/next */
 (function(){
-  var links=[].slice.call(document.querySelectorAll('a.ph.has-img'));
-  if(!links.length) return;
+  var tabs=document.querySelectorAll('.gtabs button');
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-selected','false')});
+      document.querySelectorAll('.gchapter').forEach(function(s){s.classList.remove('active')});
+      b.classList.add('active');b.setAttribute('aria-selected','true');
+      var s=document.getElementById(b.getAttribute('data-panel'));if(s)s.classList.add('active');
+    });
+  });
+  var all=[].slice.call(document.querySelectorAll('a.ph.has-img'));
+  if(!all.length) return;
   var lb=document.createElement('div');lb.className='lb';
   lb.innerHTML='<button class="lb-x" aria-label="Close">&times;</button>'+
     '<button class="lb-prev" aria-label="Previous">&#8592;</button>'+
     '<img alt=""/><div class="lb-cap"></div>'+
     '<button class="lb-next" aria-label="Next">&#8594;</button>';
   document.body.appendChild(lb);
-  var im=lb.querySelector('img'),cap=lb.querySelector('.lb-cap'),cur=0;
+  var im=lb.querySelector('img'),cap=lb.querySelector('.lb-cap'),set=all,cur=0;
   function show(i){
-    cur=(i+links.length)%links.length;
-    var a=links[cur],t=a.querySelector('img'),fc=a.parentNode.querySelector('figcaption');
+    cur=(i+set.length)%set.length;
+    var a=set[cur],t=a.querySelector('img'),fc=a.parentNode.querySelector('figcaption');
     im.src=a.getAttribute('href');im.alt=t?t.alt:'';
     cap.textContent=fc?fc.textContent:(t?t.alt:'');
     lb.classList.add('open');
   }
   function close(){lb.classList.remove('open');im.src='';}
-  links.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();show(i);});});
+  all.forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var scope=a.closest('.gchapter')||document;
+      set=[].slice.call(scope.querySelectorAll('a.ph.has-img'));
+      show(set.indexOf(a));
+    });
+  });
   lb.querySelector('.lb-x').addEventListener('click',close);
   lb.querySelector('.lb-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
   lb.querySelector('.lb-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});

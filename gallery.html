@@ -80,15 +80,15 @@
         <h1 class="xl">Inside Dream Girls: Minneapolis <span class="grad">strip club</span> gallery</h1>
         <p>Every corner of the club, straight from the shoot — the marquee on 5th Street, the showroom, and the booths where the night goes private.</p>
       </div>
-      <div class="gtabs rv" aria-label="Jump to a chapter">
-        <a href="#g-outside">The Marquee</a>
-        <a href="#g-interior">The Showroom</a>
-        <a href="#g-booths">The Booths</a>
+      <div class="gtabs rv" role="tablist" aria-label="Gallery chapters">
+        <button type="button" class="active" data-panel="g-outside" role="tab" aria-selected="true">The Marquee</button>
+        <button type="button" data-panel="g-interior" role="tab" aria-selected="false">The Showroom</button>
+        <button type="button" data-panel="g-booths" role="tab" aria-selected="false">The Booths</button>
       </div>
     </div>
   </section>
 
-  <section class="gchapter" id="g-outside">
+  <section class="gchapter active" id="g-outside" role="tabpanel">
     <div class="wrap">
       <div class="section-head rv">
         <span class="eyebrow">Chapter 01 · Outside</span>
@@ -105,7 +105,7 @@
     </div>
   </section>
 
-  <section class="gchapter" id="g-interior">
+  <section class="gchapter" id="g-interior" role="tabpanel">
     <div class="wrap">
       <div class="section-head rv">
         <span class="eyebrow">Chapter 02 · Inside the Club</span>
@@ -128,7 +128,7 @@
     </div>
   </section>
 
-  <section class="gchapter" id="g-booths">
+  <section class="gchapter" id="g-booths" role="tabpanel">
     <div class="wrap">
       <div class="section-head rv">
         <span class="eyebrow">Chapter 03 · Dance Booths</span>
