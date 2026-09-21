@@ -401,16 +401,16 @@ h1.xl{font-size:clamp(38px,6.4vw,76px);letter-spacing:-.025em;line-height:1.02}
 .neon-card .cap p{font-size:14px;color:var(--muted-2)}
 
 /* hero photo backdrop */
-.hero.hero-photo{
+.hero-photo{
   background:
     linear-gradient(100deg, rgba(8,4,12,.84) 0%, rgba(8,4,12,.68) 42%, rgba(8,4,12,.32) 100%),
     linear-gradient(0deg, rgba(8,4,12,.85) 0%, rgba(8,4,12,.15) 34%, transparent 55%),
-    url("../assets/photos/hero.jpg") center/cover no-repeat;
+    var(--hero-img) center/cover no-repeat;
 }
 @media(max-width:900px){
-  .hero.hero-photo{background:
+  .hero-photo{background:
     linear-gradient(180deg, rgba(8,4,12,.72) 0%, rgba(8,4,12,.8) 70%, rgba(8,4,12,.87) 100%),
-    url("../assets/photos/hero.jpg") center/cover no-repeat}
+    var(--hero-img) center/cover no-repeat}
 }
 
 /* hero split */
