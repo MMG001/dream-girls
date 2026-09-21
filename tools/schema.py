@@ -120,6 +120,34 @@ PAGES = {
 ID = lambda frag: f"{BASE}/#{frag}"
 def page_url(f): return BASE + ("/" if f == "index.html" else "/" + f)
 
+# PHOTOS — the Sept 2026 venue shoot (assets/photos/, all 850x550).
+# Ordered exactly like the gallery tabs: outside / interior / booths.
+PHOTOS = [
+    ("outside-03.jpg", "Dreamgirls marquee at 12 N 5th St — Where your fantasy begins"),
+    ("outside-02.jpg", "Dreamgirls and Sneaky Pete's neon rooftop signs at night in downtown Minneapolis"),
+    ("outside-01.jpg", "Dreamgirls entrance on N 5th Street next to the light rail platform"),
+    ("outside-04.jpg", "Dreamgirls canopy over the sidewalk on 5th Street at night"),
+    ("stage-04.jpg", "Main stage under blue lights with stage-side seating at Dream Girls"),
+    ("club-01.jpg", "Main showroom with stage, poles and table seating"),
+    ("club-02.jpg", "Stage-side view across the main floor toward the bar"),
+    ("stage-01.jpg", "Main stage with sparkling floor and overhead stage lights"),
+    ("club-03.jpg", "Full club floor with tiered seating and the main stage"),
+    ("stage-03.jpg", "Wide view of the main stage, spiral staircase and stage rail"),
+    ("club-05.jpg", "Stage and cocktail seating under the show lights"),
+    ("stage-02.jpg", "Stage rail seating wrapping the main stage"),
+    ("dj-booth.jpg", "The DJ booth that runs the room all night"),
+    ("club-04.jpg", "Lounge seating on the club floor"),
+    ("booth-04.jpg", "Row of private dance booth seating with cocktail tables"),
+    ("booth-01.jpg", "Private dance booth chair and ottoman"),
+    ("booth-02.jpg", "Semi-private booth seating area"),
+    ("booth-03.jpg", "Private dance booth with mirrored wall"),
+]
+
+def node_photo(fn, caption):
+    u = BASE + "/assets/photos/" + fn
+    return {"@type": "ImageObject", "url": u, "contentUrl": u,
+            "width": 850, "height": 550, "caption": caption}
+
 # ─────────────────────────────────────────────────────────────────────────────
 # NODE BUILDERS
 # ─────────────────────────────────────────────────────────────────────────────
@@ -235,6 +263,9 @@ def node_webpage(page, src):
          "breadcrumb": {"@id": page_url(page) + "#breadcrumb"}, "primaryImageOfPage": {"@id": ID("primaryimage")},
          "inLanguage": LANG}
     if main_slug: n["mainEntity"] = {"@id": ID(main_slug)}
+    if page == "gallery.html":           # ImageGallery: every photo in the tabbed grid
+        n["@type"] = [subtype, "ImageGallery"]
+        n["associatedMedia"] = [node_photo(fn, cap) for fn, cap in PHOTOS]
     if page == "faq.html":               # FAQPage: mirror the visible <details> Q&A, HTML stripped
         qa = re.findall(r"<summary>(.*?)</summary>\s*<p>(.*?)</p>", src, re.S)
         strip = lambda x: htmlmod.unescape(re.sub(r"<[^>]+>", "", x)).strip()

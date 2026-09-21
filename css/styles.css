@@ -177,6 +177,10 @@
   .ph svg{width:34px;height:34px;opacity:.5;margin-bottom:8px}
   .ph b{display:block;font-family:'Syne';font-size:14px;color:var(--muted);letter-spacing:.04em}
   .ph small{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .ph.has-img{border:1px solid var(--line-strong);background:var(--card)}
+  .ph.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  a.ph.has-img{cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+  a.ph.has-img:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,20,147,.18)}
 
   /* specials list */
   .special{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
@@ -244,9 +248,29 @@
     background:var(--pink);box-shadow:0 0 8px rgba(255,20,147,.6)}
 
   /* gallery */
+  .gtabs{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 20px}
+  .gtabs button{
+    font-family:'Syne';font-weight:700;font-size:14px;letter-spacing:.04em;cursor:pointer;
+    padding:10px 20px;border-radius:999px;color:var(--muted);
+    background:rgba(255,255,255,.03);border:1px solid var(--line-strong);transition:all .2s ease}
+  .gtabs button:hover{color:var(--pink-soft);border-color:var(--pink-2)}
+  .gtabs button.active{color:#fff;background:rgba(255,20,147,.16);border-color:var(--pink-2);
+    box-shadow:0 0 18px rgba(255,20,147,.25)}
+  .gpanel{display:none}
+  .gpanel.active{display:grid}
+  .lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+    background:rgba(5,2,10,.92);backdrop-filter:blur(6px);padding:4vh 4vw;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:14px;border:1px solid var(--line-strong);
+    box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .lb-x{position:absolute;top:18px;right:22px;font-size:34px;line-height:1;color:#fff;opacity:.7;
+    background:none;border:0;cursor:pointer}
+  .lb .lb-x:hover{opacity:1}
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .gallery-grid .ph:nth-child(1){grid-row:span 2}
   .gallery-grid .ph:nth-child(6){grid-column:span 2}
+  .gallery-grid.even .ph:nth-child(1){grid-row:auto}
+  .gallery-grid.even .ph:nth-child(6){grid-column:auto}
 
   /* CTA band */
   .band{
