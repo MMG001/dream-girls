@@ -81,14 +81,18 @@
         <h1 class="xl"><span class="grad">Strip club</span> cover &amp; specials in Minneapolis</h1>
         <p>Know the full damage before you leave the house. Here's how the door works at downtown Minneapolis' full-nude strip club, every night we're open.</p>
       </div>
+      <div class="gtabs rv" role="tablist" aria-label="Specials sections">
+        <button type="button" class="active" data-panel="sp-deals" role="tab" aria-selected="true">The Deals</button>
+        <button type="button" data-panel="sp-weekly" role="tab" aria-selected="false">Every Week &amp; Hours</button>
+      </div>
     </div>
 </section>
 
-<section class="band-glow" style="padding-top:34px">
+<section class="band-glow" style="padding-top:0">
     <div class="wrap">
 
-      <div class="grid" style="grid-template-columns:1.3fr .7fr;gap:34px;align-items:start">
-        <div>
+      <div class="gchapter active" id="sp-deals" role="tabpanel">
+        <div style="max-width:880px">
           <div class="special has-img">
             <img class="sp-img" src="assets/photos/special-cover.jpg" alt="$10 cover till midnight, $15 after — Dream Girls Minneapolis" width="850" height="550" loading="lazy" decoding="async">
             <div><h3>$10 cover till midnight <span class="tag">/ $15 after midnight</span></h3>
@@ -135,8 +139,10 @@
             <p>Dream Girls is 18 and up. Our sister club Sneaky Pete's, with its full bar, is 21 and up.</p></div>
           </div>
         </div>
+      </div>
 
-        <aside class="stack">
+      <div class="gchapter" id="sp-weekly" role="tabpanel">
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;align-items:start;max-width:880px">
           <div class="card">
             <span class="eyebrow">Weekly</span>
             <h3 style="font-size:20px;margin:12px 0 16px">Every week</h3>
@@ -159,8 +165,8 @@
             </table>
             <p class="muted" style="font-size:13px;margin-top:12px">Open till 4AM on weekends. Sundays open during football season.</p>
           </div>
-          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Get directions</a>
-        </aside>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:24px">Get directions</a>
       </div>
     </div>
   </section>
