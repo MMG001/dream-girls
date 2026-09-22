@@ -423,6 +423,11 @@ h1.xl{font-size:clamp(38px,6.4vw,76px);letter-spacing:-.025em;line-height:1.02}
 .hero-compact .pills{margin-top:18px}
 .hero-compact .section-head{margin-bottom:0}
 .hero-compact .section-head p{font-size:16px;margin-top:10px}
+/* fixed-ratio hero: exact 1900x800 proportions on desktop, natural height on mobile */
+@media(min-width:900px){
+  .hero-19x8{aspect-ratio:1900/800;display:flex;align-items:center;padding-top:0!important;padding-bottom:0}
+  .hero-19x8 .wrap{width:100%}
+}
 @media(max-width:900px){
   .hero-photo{background:
     linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.7) 70%, rgba(0,0,0,.77) 100%),
