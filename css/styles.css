@@ -365,6 +365,8 @@
     box-shadow:inset 0 0 18px rgba(255,20,147,.12),0 0 18px rgba(255,20,147,.18);color:var(--pink-2)}
   .sp-ico .ni{width:36px;height:36px;filter:drop-shadow(0 0 5px rgba(255,71,156,.7))}
   @media(max-width:560px){.sp-ico{width:52px;height:52px;border-radius:13px}.sp-ico .ni{width:30px;height:30px}}
+  .sp-img{flex-shrink:0;width:210px;aspect-ratio:850/550;object-fit:cover;border-radius:16px;border:1px solid var(--line-strong);box-shadow:0 10px 26px rgba(0,0,0,.5)}
+  @media(max-width:700px){.special.has-img{flex-direction:column}.sp-img{width:100%;max-width:420px}}
 
 /* ═══════════════ v2 STYLE SYSTEM — Stitch-grade nightlife ═══════════════ */
 :root{--plum:#1a0d22;--plum-2:#22102d;--glow-pink:0 0 24px rgba(255,20,147,.55);--glow-violet:0 0 24px rgba(168,85,247,.5)}
