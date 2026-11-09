@@ -16,7 +16,7 @@ import json, re, sys, html as htmlmod
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://dream-girls.pages.dev"   # <-- swap when the custom domain is attached
+BASE = "https://dreamgirlsstripclub.com"   # <-- swap when the custom domain is attached
 LANG = "en-US"
 
 # ─────────────────────────────────────────────────────────────────────────────
