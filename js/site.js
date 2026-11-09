@@ -40,7 +40,7 @@
   /* ── Floating mobile CTA ── */
   if(!document.querySelector('.fab')){
     var f=document.createElement('div'); f.className='fab';
-    f.innerHTML='<a class="btn btn-primary" href="contact.html#party">Book a party</a><a class="btn btn-dark" href="tel:+16123337326" aria-label="Call">Call</a>';
+    f.innerHTML='<a class="btn btn-primary" href="contact#party">Book a party</a><a class="btn btn-dark" href="tel:+16123337326" aria-label="Call">Call</a>';
     document.body.appendChild(f);
   }
 })();

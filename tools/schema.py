@@ -72,7 +72,7 @@ SERVICES = {
     "svc-parties": {
         "name": "Bachelor, bachelorette & group parties",
         "serviceType": "Group event hosting",
-        "url": "/parties.html", "own_page": "parties.html",
+        "url": "/parties", "own_page": "parties.html",
         "blurb": "Birthdays, bachelor and bachelorette nights, and big group blowouts. Groups of six or more get free cover.",
         "category": ("Bachelor party", "https://en.wikipedia.org/wiki/Bachelor_party"),
         "output": "A reserved group night with free cover for six or more",
@@ -82,7 +82,7 @@ SERVICES = {
     "svc-private-dances": {
         "name": "Private dances",
         "serviceType": "Private dance entertainment",
-        "url": "/specials.html", "own_page": "specials.html",
+        "url": "/specials", "own_page": "specials.html",
         "blurb": "Topless and nude lap dances start at $20 on the floor. Private dance rooms are priced at the club.",
         "category": ("Lap dance", "https://en.wikipedia.org/wiki/Lap_dance"),
         "output": "A private dance with an entertainer",
@@ -92,7 +92,7 @@ SERVICES = {
     "svc-vip-room": {
         "name": "VIP room",
         "serviceType": "VIP lounge access",
-        "url": "/parties.html", "own_page": None,           # described on parties + specials, no dedicated page
+        "url": "/parties", "own_page": None,           # described on parties + specials, no dedicated page
         "blurb": "Private dances and the VIP room are priced at the club. Ask your entertainer or the floor host to set it up.",
         "category": ("Strip club", "https://en.wikipedia.org/wiki/Strip_club"),
         "output": "VIP room access",
@@ -120,7 +120,7 @@ PAGES = {
 }
 
 ID = lambda frag: f"{BASE}/#{frag}"
-def page_url(f): return BASE + ("/" if f == "index.html" else "/" + f)
+def page_url(f): return BASE + ("/" if f == "index.html" else "/" + f[:-5])  # clean URLs (Cloudflare 308s .html → extensionless)
 
 # PHOTOS — the Sept 2026 venue shoot (assets/photos/, all 850x550).
 # Ordered exactly like the gallery tabs: outside / interior / booths.
@@ -202,15 +202,15 @@ def node_business(page):
         "keywords": b["keywords"],
         "publicAccess": True,
         "isAccessibleForFree": False,                 # cover charge is published
-        "tourBookingPage": BASE + "/parties.html",    # party/VIP booking entry (Place scope)
+        "tourBookingPage": BASE + "/parties",    # party/VIP booking entry (Place scope)
         "amenityFeature": [{"@type": "LocationFeatureSpecification", "name": a, "value": True} for a in b["amenities"]],
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Dream Girls services",
             "itemListElement": [{"@type": "Offer", "itemOffered": {"@id": ID(s)}} for s in SERVICES]},
         "potentialAction": [
-            {"@type": "ReserveAction", "name": "Book a party", "target": entry(BASE + "/contact.html#party")},
-            {"@type": "ApplyAction",   "name": "Apply for employment", "target": entry(BASE + "/employment.html")},
-            {"@type": "ApplyAction",   "name": "Request a showgirl audition", "target": entry(BASE + "/auditions.html")},
-            {"@type": "AskAction",     "name": "Contact Dream Girls", "target": entry(BASE + "/contact.html")},
+            {"@type": "ReserveAction", "name": "Book a party", "target": entry(BASE + "/contact#party")},
+            {"@type": "ApplyAction",   "name": "Apply for employment", "target": entry(BASE + "/employment")},
+            {"@type": "ApplyAction",   "name": "Request a showgirl audition", "target": entry(BASE + "/auditions")},
+            {"@type": "AskAction",     "name": "Contact Dream Girls", "target": entry(BASE + "/contact")},
             {"@type": "CommunicateAction", "name": "Call Dream Girls", "target": entry("tel:+16123337326")},
         ],
     }
