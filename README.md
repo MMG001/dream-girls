@@ -101,3 +101,7 @@ Wikidata Q-IDs (not verified). Cover prices are marked up on `specials.html` onl
 **Changing the domain:** change `BASE` in `tools/schema.py`, then update canonicals/OG/sitemap/robots.
 **Validation:** after each deploy, run a *fresh* crawl in Google Rich Results Test and the Schema.org
 validator (they cache); confirm via view-source on the live page first.
+
+**Events:** Google needs a dated `startDate` per Event, so each weekly night (College Night, Military Wednesdays)
+is emitted as its next 4 dated occurrences, computed at build time. **Re-run `python3 tools/schema.py` at least monthly**
+(and push) so the dates stay in the future. The build fails if any Event is missing a Google-required/recommended field.

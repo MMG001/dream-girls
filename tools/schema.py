@@ -13,6 +13,8 @@ checks and fails hard on any violation:
 Run from the repo root:  python3 tools/schema.py
 """
 import json, re, sys, html as htmlmod
+from datetime import datetime, time, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -275,22 +277,54 @@ def node_webpage(page, src):
                             "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in qa]
     return n
 
-def nodes_events(page):
-    """Recurring weekly nights published on specials.html (v3.1)."""
+EVENT_TZ = ZoneInfo("America/Chicago")
+EVENT_WEEKS = 4          # upcoming occurrences emitted per weekly night
+EVENT_IMAGES = [BASE + "/assets/og-image.png", BASE + "/assets/photos/stage-04.jpg", BASE + "/assets/photos/outside-03.jpg"]
+WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+def nodes_events(page, today=None):
+    """Recurring weekly nights published on specials.html (v3.1).
+
+    Google's Event rich result needs a concrete startDate per Event — eventSchedule
+    alone is reported as 'Missing field startDate'. So each weekly night is emitted
+    as its next EVENT_WEEKS dated occurrences (local time, real UTC offset, DST-safe),
+    each keeping the Schedule. Dates are computed at build time: re-run this script
+    at least monthly so the occurrences stay in the future.
+    """
     if page != "specials.html": return []
-    def ev(frag, name, day, desc):
-        return {"@type": "Event", "@id": page_url(page) + "#" + frag, "name": name, "description": desc,
+    today = today or datetime.now(EVENT_TZ).date()
+    def ev(frag, name, day, desc, offer):
+        ahead = (WEEKDAYS.index(day) - today.weekday()) % 7
+        out = []
+        for w in range(EVENT_WEEKS):
+            d = today + timedelta(days=ahead + 7 * w)
+            start = datetime.combine(d, time(20, 0), EVENT_TZ)                      # doors 8PM
+            end   = datetime.combine(d + timedelta(days=1), time(3, 0), EVENT_TZ)   # close 3AM next morning
+            out.append({"@type": "Event", "@id": f"{page_url(page)}#{frag}-{d.isoformat()}", "name": name, "description": desc,
+                "startDate": start.isoformat(), "endDate": end.isoformat(),
                 "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
                 "eventStatus": "https://schema.org/EventScheduled",
                 "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/" + day,
-                                  "repeatFrequency": "P1W", "startTime": "20:00", "endTime": "03:00"},
+                                  "repeatFrequency": "P1W", "startTime": "20:00", "endTime": "03:00",
+                                  "scheduleTimezone": "America/Chicago"},
+                "image": EVENT_IMAGES,
                 "location": {"@id": ID("business")}, "organizer": {"@id": ID("business")},
-                "offers": {"@type": "Offer", "name": "Free cover with valid ID", "price": "0", "priceCurrency": "USD",
-                           "availability": "https://schema.org/InStock", "url": page_url(page)}}
-    return [
-        ev("college-night", "College Night Thursdays", "Thursday", "Free cover with college ID. Beverage purchase required."),
-        ev("military-night", "Military Wednesdays", "Wednesday", "Free cover with military ID."),
-    ]
+                "performer": {"@type": "PerformingGroup", "name": "Dream Girls entertainers", "url": BASE + "/roll-call"},
+                "offers": {"@type": "Offer", "name": offer, "price": "0", "priceCurrency": "USD",
+                           "availability": "https://schema.org/InStock", "url": page_url(page),
+                           "validFrom": start.isoformat()}})                        # door offer — valid from doors open
+        return out
+    return (ev("college-night", "College Night Thursdays", "Thursday", "Free cover with college ID. Beverage purchase required.", "Free cover with college ID")
+          + ev("military-night", "Military Wednesdays", "Wednesday", "Free cover with military ID.", "Free cover with military ID"))
+
+def check_events(graph, page):
+    """Google Event rich-result fields: fail the build if any required/recommended one is missing."""
+    for o in walk(graph):
+        if o.get("@type") == "Event":
+            for k in ("name", "startDate", "endDate", "location", "image", "performer", "offers"):
+                assert o.get(k), f"[{page}] Event {o.get('@id')} missing `{k}`"
+            assert o["offers"].get("validFrom"), f"[{page}] Event {o.get('@id')} missing offers.validFrom"
+            assert datetime.fromisoformat(o["startDate"]).utcoffset() is not None, f"[{page}] startDate needs a UTC offset"
 
 def build_graph(page, src):
     g = [node_website(), node_business(page), node_logo(), node_primary_image(), node_service_area(),
@@ -341,7 +375,7 @@ def inject(page):
     src = p.read_text()
     src = re.sub(r'\s*<script type="application/ld\+json">.*?</script>', "", src, flags=re.S)   # remove old JSON-LD
     graph = build_graph(page, src)
-    check_ids(graph, page); check_props(graph, page)
+    check_ids(graph, page); check_props(graph, page); check_events(graph, page)
     js = json.dumps(graph, ensure_ascii=False, separators=(",", ":"))
     json.loads(js)  # parses
     tag = f'<script type="application/ld+json">{js}</script>\n</head>'
