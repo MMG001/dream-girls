@@ -1,0 +1,33 @@
+name: Refresh event dates
+
+# Rebuilds the JSON-LD every Monday so the dated Event occurrences on
+# specials.html stay in the future. Commits only if something changed;
+# the push to main triggers the normal Cloudflare Pages deploy.
+on:
+  schedule:
+    - cron: "17 11 * * 1"   # Mondays ~5:17 AM Central
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild schema
+        run: python3 tools/schema.py
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "MMG001"
+          git config user.email "MMG001@users.noreply.github.com"
+          git commit -am "Schema: refresh weekly event dates"
+          git push

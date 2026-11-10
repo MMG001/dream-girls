@@ -103,5 +103,5 @@ Wikidata Q-IDs (not verified). Cover prices are marked up on `specials.html` onl
 validator (they cache); confirm via view-source on the live page first.
 
 **Events:** Google needs a dated `startDate` per Event, so each weekly night (College Night, Military Wednesdays)
-is emitted as its next 4 dated occurrences, computed at build time. **Re-run `python3 tools/schema.py` at least monthly**
-(and push) so the dates stay in the future. The build fails if any Event is missing a Google-required/recommended field.
+is emitted as its next 4 dated occurrences, computed at build time. `.github/workflows/refresh-schema.yml` re-runs the build every Monday and pushes
+if the dates changed (run it by hand from the repo's Actions tab if needed). The build fails if any Event is missing a Google-required/recommended field.
