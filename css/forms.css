@@ -53,3 +53,7 @@
 :root:root:root:root .cog-cognito.cog-form textarea:-webkit-autofill,
 :root:root:root:root .cog-cognito.cog-form select:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #ff1493 inset!important;box-shadow:0 0 0 1000px #ff1493 inset!important;-webkit-text-fill-color:#fff!important;caret-color:#fff!important;border-color:#ff479c!important;transition:background-color 99999s ease-in-out 0s!important}
 :root:root:root:root .cog-cognito.cog-form input:autofill{box-shadow:0 0 0 1000px #ff1493 inset!important;-webkit-text-fill-color:#fff!important}
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn::before,
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn::after{border-color:#fff!important}
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn:hover::before,
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn:hover::after{border-color:#ff479c!important}
