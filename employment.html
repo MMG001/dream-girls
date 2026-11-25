@@ -173,10 +173,9 @@
             </div>
             <div class="field two">
               <div><label for="emp-18">Are you 18 or older? <span class="req">*</span></label><select id="emp-18" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
-              <div><label for="emp-auth">Legally authorized to work in the U.S.? <span class="req">*</span></label><select id="emp-auth" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+              <div><label for="emp-late">Able to work until close (3&ndash;4AM)?</label><select id="emp-late"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
             </div>
             <div class="field two">
-              <div><label for="emp-late">Able to work until close (3&ndash;4AM)?</label><select id="emp-late"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
               <div><label for="emp-before">Worked for Dream Girls before?</label><select id="emp-before"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
             </div>
           </fieldset>
@@ -359,7 +358,7 @@
     add("Address",[v("emp-addr"),v("emp-city"),(v("emp-state")+" "+v("emp-zip")).trim()].filter(Boolean).join(", "));
     L.push("");
     add("Position",role); add("Looking for",v("emp-type")); add("Can start",v("emp-start")); add("Nights",nights.join(", "));
-    add("18 or older",v("emp-18")); add("Authorized to work in U.S.",v("emp-auth")); add("Can work until close",v("emp-late")); add("Worked here before",v("emp-before"));
+    add("18 or older",v("emp-18")); add("Can work until close",v("emp-late")); add("Worked here before",v("emp-before"));
     [1,2].forEach(function(n){
       if(!v("emp-co"+n)) return;
       L.push("","EMPLOYER "+n);
