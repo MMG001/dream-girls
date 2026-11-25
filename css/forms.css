@@ -1,44 +1,32 @@
 /* Cognito Forms embeds, Dream Girls theme */
-.cog-cognito.cog-form{
-  --color:#fff; --font-family:'Outfit',Arial,sans-serif; --font-size:15px; --line-height:1.5;
-  --primary:#ff1493; --primary-reverse:#fff; --highlight:#ff479c; --highlight-reverse:#fff;
-  --negative:#ff5c7a; --negative-reverse:#1a0d22;
-  --border-radius:10px; --gutter:18px;
-  --form__background-color:transparent; --form__margins:0px; --form__width:100%;
-  --page__background-color:transparent; --page__margins:0px;
-  --header__background-color:transparent; --header__color:#fff;
-  --heading__color:#fff; --heading__font-family:'Syne','Outfit',sans-serif; --heading__font-size:18px; --heading__font-weight:700;
-  --label__color:#fff; --label__font-family:'Outfit',Arial,sans-serif; --label__font-size:12px; --label__font-weight:600;
-  --input__background-color:#120a17; --input__border-color:rgba(246,236,242,.16); --input__color:#fff;
-  --input__padding-h:14px; --input__padding-v:12px; --input__border-radius:10px;
-  --input-focus__box-shadow:0 0 0 3px rgba(255,20,147,.16);
-  --input-highlight:#ff479c; --input-highlight-reverse:#fff;
-  --placeholder__color:rgba(255,255,255,.4);
-  --checkable__border-color:rgba(246,236,242,.4); --checkbox__border-radius:5px;
-  --card__border-color:rgba(255,176,202,.14);
-  --a__color:#ffb0ca;
-  --button-primary__background-color:#ff1493; --button-primary__border-color:#ff1493; --button-primary__color:#fff;
-  --button-primary__border-radius:999px; --button-primary__font-family:'Outfit',Arial,sans-serif; --button-primary__font-size:13px; --button-primary__font-weight:700;
-  --button-secondary__background-color:transparent; --button-secondary__border-color:rgba(246,236,242,.28); --button-secondary__color:#fff;
-  --button-secondary__border-radius:999px; --button-secondary__font-family:'Outfit',Arial,sans-serif; --button-secondary__font-size:13px; --button-secondary__font-weight:600;
-  color-scheme:dark; background:transparent; color:#fff;
-}
-.cog-cognito.cog-form .cog-header{display:none}
-.cog-cognito.cog-form .cog-label,.cog-cognito.cog-form legend.cog-label{letter-spacing:.1em;text-transform:uppercase}
-.cog-cognito.cog-form .el-checkbox__label,.cog-cognito.cog-form .el-radio__label{letter-spacing:0;text-transform:none;font-size:14px;font-weight:400;color:#fff}
-.cog-cognito.cog-form .cog-section__heading,.cog-cognito.cog-form h2,.cog-cognito.cog-form h3{color:#fff}
-.cog-cognito.cog-form .cog-section{border-top:1px solid rgba(255,176,202,.14);padding-top:22px;margin-top:22px}
-.cog-cognito.cog-form .cog-button--primary,.cog-cognito.cog-form .cog-button--submit{letter-spacing:.13em;text-transform:uppercase;padding:14px 28px}
-.cog-cognito.cog-form .cog-button--primary:hover{background:linear-gradient(135deg,#ff1493 0%,#7105c2 100%);box-shadow:0 10px 30px -6px rgba(255,20,147,.6)}
-.cog-cognito.cog-form .cog-helptext,.cog-cognito.cog-form .cog-content{color:#e6e6e6}
-.cog-cognito.cog-form select option{background:#150a16;color:#fff}
-.cog-cognito.cog-form .cog-branding,.cog-cognito.cog-form .cog-abuse{opacity:.6}
-.el-select-dropdown,.el-picker-panel,.el-autocomplete-suggestion{background:#150a16!important;border-color:rgba(255,20,147,.35)!important;color:#fff!important}
+:root:root:root:root .cog-cognito.cog-form{--color:#fff!important;--font-family:'Outfit',Arial,sans-serif!important;--font-size:15px!important;--line-height:1.5!important;--primary:#ff1493!important;--primary-reverse:#fff!important;--highlight:#ff479c!important;--highlight-reverse:#fff!important;--negative:#ff5c7a!important;--negative-reverse:#1a0d22!important;--border-radius:10px!important;--gutter:18px!important;--form__background-color:transparent!important;--form__margins:0px!important;--form__width:100%!important;--page__background-color:transparent!important;--page__margins:0px!important;--header__background-color:transparent!important;--header__color:#fff!important;--heading__color:#fff!important;--heading__font-family:'Syne','Outfit',sans-serif!important;--heading__font-size:18px!important;--heading__font-weight:700!important;--label__color:#fff!important;--label__font-family:'Outfit',Arial,sans-serif!important;--label__font-size:12px!important;--label__font-weight:600!important;--input__background-color:#120a17!important;--input__border-color:rgba(246,236,242,.16)!important;--input__color:#fff!important;--input__padding-h:14px!important;--input__padding-v:12px!important;--input__border-radius:10px!important;--input-focus__box-shadow:0 0 0 3px rgba(255,20,147,.16)!important;--input-highlight:#ff479c!important;--input-highlight-reverse:#fff!important;--placeholder__color:rgba(255,255,255,.4)!important;--checkable__border-color:rgba(246,236,242,.4)!important;--checkbox__border-radius:5px!important;--card__border-color:rgba(255,176,202,.14)!important;--a__color:#ffb0ca!important;--button-primary__background-color:#ff1493!important;--button-primary__border-color:#ff1493!important;--button-primary__color:#fff!important;--button-primary__border-radius:999px!important;--button-primary__font-family:'Outfit',Arial,sans-serif!important;--button-primary__font-size:13px!important;--button-primary__font-weight:700!important;--button-secondary__background-color:transparent!important;--button-secondary__border-color:rgba(246,236,242,.28)!important;--button-secondary__color:#fff!important;--button-secondary__border-radius:999px!important;--button-secondary__font-family:'Outfit',Arial,sans-serif!important;--button-secondary__font-size:13px!important;--button-secondary__font-weight:600!important;color-scheme:dark!important;background:transparent!important;color:#fff!important}
+:root:root:root:root .cog-cognito.cog-form .cog-header{display:none!important}
+:root:root:root:root .cog-cognito.cog-form .cog-label,
+:root:root:root:root .cog-cognito.cog-form legend.cog-label{letter-spacing:.1em!important;text-transform:uppercase!important}
+:root:root:root:root .cog-cognito.cog-form .el-checkbox__label,
+:root:root:root:root .cog-cognito.cog-form .el-radio__label{letter-spacing:0!important;text-transform:none!important;font-size:14px!important;font-weight:400!important;color:#fff!important}
+:root:root:root:root .cog-cognito.cog-form .cog-section__heading,
+:root:root:root:root .cog-cognito.cog-form h2,
+:root:root:root:root .cog-cognito.cog-form h3{color:#fff!important}
+:root:root:root:root .cog-cognito.cog-form .cog-section{border-top:1px solid rgba(255,176,202,.14)!important;padding-top:22px!important;margin-top:22px!important}
+:root:root:root:root .cog-cognito.cog-form .cog-button--primary,
+:root:root:root:root .cog-cognito.cog-form .cog-button--submit{letter-spacing:.13em!important;text-transform:uppercase!important;padding:14px 28px!important}
+:root:root:root:root .cog-cognito.cog-form .cog-button--primary:hover{background:linear-gradient(135deg,#ff1493 0%,#7105c2 100%)!important;box-shadow:0 10px 30px -6px rgba(255,20,147,.6)!important}
+:root:root:root:root .cog-cognito.cog-form .cog-helptext,
+:root:root:root:root .cog-cognito.cog-form .cog-content{color:#e6e6e6!important}
+:root:root:root:root .cog-cognito.cog-form select option{background:#150a16!important;color:#fff!important}
+:root:root:root:root .cog-cognito.cog-form .cog-branding,
+:root:root:root:root .cog-cognito.cog-form .cog-abuse{opacity:.6!important}
+.el-select-dropdown,
+.el-picker-panel,
+.el-autocomplete-suggestion{background:#150a16!important;border-color:rgba(255,20,147,.35)!important;color:#fff!important}
 .el-select-dropdown__item{color:#fff!important}
-.el-select-dropdown__item.hover,.el-select-dropdown__item:hover{background:#22102d!important}
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover{background:#22102d!important}
 .el-select-dropdown__item.selected{color:#ff479c!important}
-.el-picker-panel *{color:#fff}
+.el-picker-panel *{color:#fff!important}
 .el-date-table td.current:not(.disabled) span{background:#ff1493!important}
-.el-date-table td.prev-month,.el-date-table td.next-month{opacity:.4}
-.cog-cognito.cog-form .cog-section__inner--background{background:rgba(255,255,255,.03);border:1px solid rgba(255,176,202,.14);border-radius:14px}
-.cog-wrap{min-height:320px}
+.el-date-table td.prev-month,
+.el-date-table td.next-month{opacity:.4!important}
+:root:root:root:root .cog-cognito.cog-form .cog-section__inner--background{background:rgba(255,255,255,.03)!important;border:1px solid rgba(255,176,202,.14)!important;border-radius:14px!important}
+:root:root:root:root .cog-wrap{min-height:320px!important}
