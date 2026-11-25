@@ -30,3 +30,5 @@
 .el-date-table td.next-month{opacity:.4!important}
 :root:root:root:root .cog-cognito.cog-form .cog-section__inner--background{background:rgba(255,255,255,.03)!important;border:1px solid rgba(255,176,202,.14)!important;border-radius:14px!important}
 :root:root:root:root .cog-wrap{min-height:320px!important}
+:root:root:root:root .cog-cognito.cog-form .el-input-number__decrease,
+:root:root:root:root .cog-cognito.cog-form .el-input-number__increase{background:#22102d!important;color:#fff!important;border-color:rgba(246,236,242,.16)!important}
