@@ -44,12 +44,9 @@ Placeholders live in: `roll-call.html`, `gallery.html`, `about.html`.
 
 ## Forms
 
-The three forms on **contact.html** (Employment, Showgirl Audition, Book a Party)
-open the visitor's email app pre-addressed to:
+The Employment, Showgirl Audition and Party Booking forms are Cognito Forms embeds (forms 274, 275, 276 in the Web Leads account), styled by `css/forms.css`. Submissions are emailed to:
 `karinhar12@gmail.com` and `plecou@hotmail.com`.
 
-To receive submissions as clean emails without opening the visitor's mail app,
-connect a form service (e.g. Formspree) later — the fields are already in place.
 
 ## Details wired in
 
