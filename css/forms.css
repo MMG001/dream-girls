@@ -32,3 +32,24 @@
 :root:root:root:root .cog-wrap{min-height:320px!important}
 :root:root:root:root .cog-cognito.cog-form .el-input-number__decrease,
 :root:root:root:root .cog-cognito.cog-form .el-input-number__increase{background:#22102d!important;color:#fff!important;border-color:rgba(246,236,242,.16)!important}
+/* calendar popup: white arrows and text */
+:root:root:root:root .el-picker-panel,
+:root:root:root:root .el-picker-panel *{color:#fff!important}
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn,
+:root:root:root:root .el-picker-panel .el-date-picker__header-label,
+:root:root:root:root .el-picker-panel [class*="arrow"],
+:root:root:root:root .el-picker-panel button{color:#fff!important;opacity:1!important}
+:root:root:root:root .el-picker-panel svg{fill:#fff!important;stroke:#fff!important;color:#fff!important}
+:root:root:root:root .el-picker-panel .el-picker-panel__icon-btn:hover,
+:root:root:root:root .el-picker-panel .el-date-picker__header-label:hover,
+:root:root:root:root .el-picker-panel td:hover span{color:#ff479c!important}
+:root:root:root:root .el-picker-panel td.today span{color:#ff479c!important;font-weight:700!important}
+:root:root:root:root .el-picker-panel td.current:not(.disabled) span{background:#ff1493!important;color:#fff!important}
+:root:root:root:root .el-picker-panel .el-date-table th{border-bottom-color:rgba(255,176,202,.25)!important}
+/* browser autofill: hot pink instead of yellow/green */
+:root:root:root:root .cog-cognito.cog-form input:-webkit-autofill,
+:root:root:root:root .cog-cognito.cog-form input:-webkit-autofill:hover,
+:root:root:root:root .cog-cognito.cog-form input:-webkit-autofill:focus,
+:root:root:root:root .cog-cognito.cog-form textarea:-webkit-autofill,
+:root:root:root:root .cog-cognito.cog-form select:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #ff1493 inset!important;box-shadow:0 0 0 1000px #ff1493 inset!important;-webkit-text-fill-color:#fff!important;caret-color:#fff!important;border-color:#ff479c!important;transition:background-color 99999s ease-in-out 0s!important}
+:root:root:root:root .cog-cognito.cog-form input:autofill{box-shadow:0 0 0 1000px #ff1493 inset!important;-webkit-text-fill-color:#fff!important}
